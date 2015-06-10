@@ -15,7 +15,8 @@ def match_ends(words):
     >>> match_ends(['aaa', 'be', 'abc', 'hello'])
     1
     """
-    raise NotImplementedError
+
+    return len(filter(lambda x: len(x) >= 2 and x[0] == x[-1], words))
 
 
 def front_x(words):
@@ -32,7 +33,12 @@ def front_x(words):
     >>> front_x(['mix', 'xyz', 'apple', 'xanadu', 'aardvark'])
     ['xanadu', 'xyz', 'aardvark', 'apple', 'mix']
     """
-    raise NotImplementedError
+
+    sorted_words = sorted(words)
+    first_half = [i for i in sorted_words if i[0] == 'x']
+    second_half = [i for i in sorted_words if i[0] != 'x']
+
+    return first_half + second_half
 
 
 def sort_last(tuples):
@@ -49,7 +55,7 @@ def sort_last(tuples):
     >>> sort_last([(1, 7), (1, 3), (3, 4, 5), (2, 2)])
     [(2, 2), (1, 3), (3, 4, 5), (1, 7)]
     """
-    raise NotImplementedError
+    return sorted(tuples, key=lambda tup: tup[1])
 
 
 def remove_adjacent(nums):
@@ -68,7 +74,19 @@ def remove_adjacent(nums):
     >>> remove_adjacent([])
     []
     """
-    raise NotImplementedError
+    if len(nums) == 0:
+        return nums
+
+    previous = nums[0]
+    newList = [previous]
+
+    for i in range(1, len(nums)):
+        currentNum = nums[i]
+        if currentNum != previous:
+            previous = currentNum
+            newList.append(currentNum)
+
+    return newList
 
 
 def linear_merge(list1, list2):
@@ -85,4 +103,27 @@ def linear_merge(list1, list2):
     >>> linear_merge(['aa', 'aa'], ['aa', 'bb', 'bb'])
     ['aa', 'aa', 'aa', 'bb', 'bb']
     """
-    raise NotImplementedError
+    mList = []
+    aIdx = 0
+    bIdx = 0
+
+    if (len(list1) == 0 or len(list2) == 0):
+        return list1 + list2
+
+    while aIdx < len(list1) and bIdx < len(list2):
+        if list1[aIdx] < list2[bIdx]:
+            mList.append(list1[aIdx])
+            aIdx = aIdx + 1
+        else:
+            mList.append(list2[bIdx])
+            bIdx = bIdx + 1
+
+    while aIdx < len(list1):
+        mList.append(list1[aIdx])
+        aIdx = aIdx + 1
+
+    while bIdx < len(list2):
+        mList.append(list2[bIdx])
+        bIdx = bIdx + 1
+
+    return mList

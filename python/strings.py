@@ -18,7 +18,12 @@ def donuts(count):
     >>> donuts(99)
     'Number of donuts: many'
     """
-    raise NotImplementedError
+
+    countStr = "many"
+    if count < 10:
+        countStr = str(count)
+
+    return 'Number of donuts: %s' % (countStr)
 
 
 def both_ends(s):
@@ -37,7 +42,10 @@ def both_ends(s):
     >>> both_ends('xyz')
     'xyyz'
     """
-    raise NotImplementedError
+
+    if len(s) < 2:
+        return ""
+    return '%s%s%s%s' % (s[0], s[1], s[-2], s[-1])
 
 
 def fix_start(s):
@@ -56,7 +64,9 @@ def fix_start(s):
     >>> fix_start('donut')
     'donut'
     """
-    raise NotImplementedError
+    firstChar, rest = s[0], s[1:]
+    newString = firstChar + rest.replace(firstChar, '*')
+    return newString
 
 
 def mix_up(a, b):
@@ -74,7 +84,11 @@ def mix_up(a, b):
     >>> mix_up('pezzy', 'firm')
     'fizzy perm'
     """
-    raise NotImplementedError
+
+    newA = b[0:2] + a[2:]
+    newB = a[0:2] + b[2:]
+
+    return newA + ' ' + newB
 
 
 def verbing(s):
@@ -91,7 +105,14 @@ def verbing(s):
     >>> verbing('do')
     'do'
     """
-    raise NotImplementedError
+
+    if len(s) < 3:
+        return s
+
+    if s[-3:] == "ing":
+        return s + 'ly'
+    else:
+        return s + 'ing'
 
 
 def not_bad(s):
@@ -111,7 +132,26 @@ def not_bad(s):
     >>> not_bad("It's bad yet not")
     "It's bad yet not"
     """
-    raise NotImplementedError
+
+    out = s
+    try:
+        notIdx = s.index('not')
+    except ValueError:
+        notIdx = -1
+
+    try:
+        badIdx = s.index('bad')
+    except ValueError:
+        badIdx = -1
+
+    if notIdx >= 0 and notIdx < badIdx:
+        afterBadIdx = badIdx + 3
+
+        out = s[0:notIdx] + 'good'
+
+        if afterBadIdx < len(s):
+            out = out + s[afterBadIdx]
+    return out
 
 
 def front_back(a, b):
@@ -130,4 +170,17 @@ def front_back(a, b):
     >>> front_back('Kitten', 'Donut')
     'KitDontenut'
     """
-    raise NotImplementedError
+
+    def split(s):
+        length = len(s)
+
+        if len(s) % 2 == 0:
+
+            return s[0:length / 2], s[length / 2:]
+        else:
+            return s[0:length / 2 + 1], s[length / 2 + 1:]
+
+    aFront, aBack = split(a)
+    bFront, bBack = split(b)
+
+    return aFront + bFront + aBack + bBack
