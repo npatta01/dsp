@@ -37,7 +37,13 @@ import sklearn
 
 Did you install Python 2 or 3? Why? How can you check the version of Python installed if you happen to be on an unfamiliar computer?
 
-REPLACE THIS TEXT WITH YOUR RESPONSE
+python 2   
+but created a conda env for python 3
+
+
+To find the python verion, you can use
+
+  python -v
 
 ---
 
