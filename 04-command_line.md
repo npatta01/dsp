@@ -50,11 +50,11 @@ What does `xargs` do? Give an example of how to use it.
 Answer based on [here](http://www.cyberciti.biz/faq/linux-unix-bsd-xargs-construct-argument-lists-utility/) 
 and [here](https://en.wikipedia.org/wiki/Xargs)
 
-xargs is a command that can be used be used to construct argument list for other commands.
-Some command might fail if the argument list is too long
+    xargs is a command that can be used be used to construct argument list for other commands.
+    Some command might fail if the argument list is too long
 
-An example
-find all .bak files in the current directory and remove them
+    An example
+    find all .bak files in the current directory and remove them
 
     ls *.bak | xargs rm
 

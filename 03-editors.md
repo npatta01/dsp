@@ -31,7 +31,7 @@ Both Emacs and vim have built-in interactive tutorials that you can try.
 
 What terminal editor will you use? How did you make your decision?
 
-nano
+    nano
 
 Seemed simpler
 ---
@@ -62,12 +62,12 @@ We will also use Jupyter (IPython) notebooks, but this does not remove the need 
 
 What graphical editor will you use? How did you make your decision? What are some interesting features of your editor? What are some useful keyboard shortcuts for your editor? How do you customize your editor?
 
-Intellij with python extension
+    Intellij with python extension
 
-Press Shift two times to search anywhere
-git integration with a plugin
-Press Ctrl-Shift-K to bring window to push commits
+    - Press Shift two times to search anywhere
+    - git integration with a plugin
+    - Press Ctrl-Shift-K to bring window to push commits
 
-Customizing the editors can be done trough plugins
+    Customizing the editors can be done trough plugins
 
 ---
