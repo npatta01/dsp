@@ -16,7 +16,8 @@ def match_ends(words):
     1
     """
 
-    return len(filter(lambda x: len(x) >= 2 and x[0] == x[-1], words))
+    items = list(filter(lambda x: len(x) >= 2 and x[0] == x[-1], words))
+    return len(items)
 
 
 def front_x(words):
@@ -87,6 +88,36 @@ def remove_adjacent(nums):
             newList.append(currentNum)
 
     return newList
+
+
+
+
+
+def remove_adjacent_ls(nums):
+    """
+    Given a list of numbers, return a list where all adjacent equal
+    elements have been reduced to a single element, so [1, 2, 2, 3]
+    returns [1, 2, 3]. You may create a new list or modify the passed
+    in list.
+
+    >>> remove_adjacent_ls([1, 2, 2, 3])
+    [1, 2, 3]
+    >>> remove_adjacent_ls([2, 2, 3, 3, 3])
+    [2, 3]
+    >>> remove_adjacent_ls([3, 2, 3, 3, 3])
+    [3, 2, 3]
+    >>> remove_adjacent_ls([])
+    []
+    >>> remove_adjacent_ls([3, 2, 3, 3, 3,4,4,5])
+    [3, 2, 3, 4, 5]
+    """
+    last_elem_idx=len(nums)-1
+    new_list = [nums[i] for i in range(0,len(nums)) if i==last_elem_idx or nums[i+1] != nums[i] ]
+
+    return new_list
+
+
+
 
 
 def linear_merge(list1, list2):
