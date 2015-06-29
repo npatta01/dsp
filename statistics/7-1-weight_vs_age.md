@@ -45,3 +45,39 @@ How would you characterize the relationship between these variables?
     thinkplot.Show(
                    xlabel="mother's age (years)",
                    ylabel='birth weight (lbs)')
+                   
+
+![alt text](img/7_1_age_weight_percentile.png "Age vs weight percentiles cdf")
+
+## age/weight
+
+    ages = live.agepreg
+    weights = live.totalwgt_lb
+    
+    
+## Scatter
+    
+    thinkplot.Scatter(ages, weights, alpha=0.1)
+    thinkplot.Config(xlabel='age (years)',
+                     ylabel='weight (lbs)',
+                     xlim=[10, 45],
+                     ylim=[0, 15],
+                     legend=False)
+                     
+                     
+    ![alt text](img/7_1_scatter.png "Age vs weight scatter plot")                 
+    
+    
+    
+## Correlation
+ 
+ 
+    print('Corr', thinkstats2.Corr(ages, weights))
+    print('SpearmanCorr', 
+          thinkstats2.SpearmanCorr(ages, weights))
+          
+          
+   (Output)
+   
+    Corr 0.0688339703541
+    SpearmanCorr 0.0946100410966 

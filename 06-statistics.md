@@ -26,16 +26,60 @@ Communicate the problem, how you solved it, and the solution, within each of the
 ---
 
 Elvis Presley had a twin brother who died at birth.  What is the probability that Elvis was an identical twin?
+------
 
-REPLACE THIS TEXT WITH YOUR RESPONSE
+Bayes rule
+
+
+P(A|B)  => P(B|A)P(A) / P(B)        
+        => P(B|A)P(A) / ( P(B|A)P(A) + P(B|A')P(A') )
+       
+        
+A = probability of identical twins
+B =  twin boy (identical or fraternal)        
+
+P(fraternal twin) = 1/125
+P(identical twin) = 1/300
+
+Note: identical twins are of  the same sex
+
+
+P(A|B)  = P(identical twins | twin brother)
+
+P(identical twins and twin brother) = P(boys |identical twins) P (identical twins)
+                                    = 1/2 * 1/300
+                                    
+identical twins can be Boy,Boy or Girl,Girl.... so two options
+
+P(fraternal twins and twin brother) = P(boys | fraternal twins) P ( fraternal twins)
+                                    = 1/4 * 1/125
+                                    
+ Fraternal twins possibilities: BB BG GG GB
+   So Boy,Boy is 1/4
+   
+   
+P(identical twins | twin brother) = 
+    P(identical twins and twin brother) / 
+        P (identical twins and twin brother) +P (fraternal twins and twin brother)  
+
+= (1/2 * 1/300 ) /  ( (1/2 * 1/300 )  + ( 1/4 * 1/125) )
+
+= 0.45
 
 ---
 
-
----
 
 How do frequentist and Bayesian statistics compare?
-
-REPLACE THIS TEXT WITH YOUR RESPONSE
-
 ---
+
+They differe in how they treat the hypothesis and data.
+Frequentis focus on  probability of seeing a data given a hypothesis. P(Data|hypothesis)
+
+Bayesians focus on probability of seeing a hypothesis given a data... P(hypothesis | data)
+
+In the bayes model, the data is considered fixed and hypotheses are random.
+
+In the frequnetis model, the hypothesis is fixed and treats data as repeatabel random sample
+
+
+[Reference] (https://oikosjournal.wordpress.com/2011/10/11/frequentist-vs-bayesian-statistics-resources-to-help-you-choose/)
